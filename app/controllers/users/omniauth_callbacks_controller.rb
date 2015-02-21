@@ -1,7 +1,7 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     def wechat
 
-        render :text => request.env["omniauth.auth"][:extra][:info][:uid].inspect
+        render :text => request.env["omniauth.auth"].inspect
 
 
         # You need to implement the method below in your model (e.g. app/models/user.rb)
