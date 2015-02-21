@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   def self.from_omniauth(auth)
       puts auth
       where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-          user.email = auth.info.nickname++'@wechat.com'
+          user.email = Time.now.utc.to_i.to_s + ("%04d" % rand(9999)) + '@mot99.com'
           user.password = Devise.friendly_token[0,6]
           user.password_confirmation = user.password
           user.nickname = auth.info.nickname
