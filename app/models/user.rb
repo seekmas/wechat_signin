@@ -10,15 +10,19 @@ class User < ActiveRecord::Base
       where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
           user.email = auth.uid+'@wechat.com'
           user.password = Devise.friendly_token[0,6]
+          user.nickname = auth.info.nickname
+          user.headimgurl = auth.info.headimgurl
       end
   end
 
   def self.new_with_session(params, session)
-      super.tap do |user|
-          if data = session["devise.wechat_data"] && session["devise.wechat_data"]["extra"]["raw_info"]
-              user.email = data["email"] if user.email.blank?
-          end
-      end
+    #   super.tap do |user|
+    #       if data = session["devise.wechat_data"] && session["devise.wechat_data"]["extra"]["raw_info"]
+    #           user.email = data["email"] if user.email.blank?
+    #       end
+    #   end
   end
 
 end
+
+
