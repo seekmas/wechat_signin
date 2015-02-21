@@ -30,8 +30,8 @@
       <file leaf-file-name="user.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/user.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4919473" vertical-offset="0" max-vertical-offset="683">
-              <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.28696924" vertical-offset="0" max-vertical-offset="683">
+              <caret line="14" column="48" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -326,18 +326,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file:///usr/local/lib/ruby/gems/2.1.0/gems/activerecord-4.1.9/lib/active_record/relation/finder_methods.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43484625" vertical-offset="1551" max-vertical-offset="6986">
+          <caret line="132" column="9" selection-start-line="132" selection-start-column="9" selection-end-line="132" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file:///usr/local/lib/ruby/gems/2.1.0/gems/activerecord-4.1.9/lib/active_record/relation.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33880597" vertical-offset="1859" max-vertical-offset="9184">
-          <caret line="149" column="34" selection-start-line="149" selection-start-column="24" selection-end-line="149" selection-end-column="34" />
+        <state vertical-scroll-proportion="0.33283582" vertical-offset="1695" max-vertical-offset="9184">
+          <caret line="137" column="14" selection-start-line="137" selection-start-column="8" selection-end-line="137" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/user.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4919473" vertical-offset="0" max-vertical-offset="683">
-          <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.28696924" vertical-offset="0" max-vertical-offset="683">
+          <caret line="14" column="48" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
           <folding />
         </state>
       </provider>

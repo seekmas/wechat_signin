@@ -7,13 +7,14 @@ class User < ActiveRecord::Base
 
   def self.from_omniauth(auth)
       puts auth
-      @user = where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
           user.email = auth.uid+'@wechat.com'
           user.password = Devise.friendly_token[0,6]
+          user.password_confirmation = user.password
           user.nickname = auth.info.nickname
           user.headimgurl = auth.info.headimgurl
       end
-      @user.save
+
   end
 
   def self.new_with_session(params, session)
