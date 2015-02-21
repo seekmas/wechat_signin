@@ -7,7 +7,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
         #   @user.save
         # end
         puts @user.inspect
-        @user.save
+        puts @user.save
         puts @user.inspect
         render :text => @user
 
