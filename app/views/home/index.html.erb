@@ -1,4 +1,16 @@
 Hello rails.
 
 
-<%= link_to "Sign in with Wechat", user_omniauth_authorize_path(:wechat) %>
+<% if current_user %>
+
+    <p><%=image_tag current_user.headimgurl%></p>
+    <p><%= current_user.nickname %></p>
+
+
+    <%= link_to('登出', destroy_user_session_path, :method => :delete) %> |
+    <%= link_to('修改密碼', edit_registration_path(:user)) %>
+<% else %>
+    <%= link_to "Sign in with Wechat", user_omniauth_authorize_path(:wechat) %>
+<% end %>
+
+
