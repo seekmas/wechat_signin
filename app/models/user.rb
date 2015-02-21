@@ -7,20 +7,18 @@ class User < ActiveRecord::Base
 
   def self.from_omniauth(auth)
       puts auth
-    #   where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-    #       user.email = auth.uid+'@wechat.com'
-    #       user.password = Devise.friendly_token[0,6]
-    #       user.nickname = auth.info.nickname   # assuming the user model has a name
-    #       user.headimgurl = auth.info.headimgurl # assuming the user model has an image
-    #   end
+      where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+          user.email = auth.uid+'@wechat.com'
+          user.password = Devise.friendly_token[0,6]
+      end
   end
 
   def self.new_with_session(params, session)
-    #   super.tap do |user|
-    #       if data = session["devise.wechat_data"] && session["devise.wechat_data"]["extra"]["raw_info"]
-    #           user.email = data["email"] if user.email.blank?
-    #       end
-    #   end
+      super.tap do |user|
+          if data = session["devise.wechat_data"] && session["devise.wechat_data"]["extra"]["raw_info"]
+              user.email = data["email"] if user.email.blank?
+          end
+      end
   end
 
 end
