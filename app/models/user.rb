@@ -16,11 +16,11 @@ class User < ActiveRecord::Base
   end
 
   def self.new_with_session(params, session)
-    #   super.tap do |user|
-    #       if data = session["devise.wechat_data"] && session["devise.wechat_data"]["extra"]["raw_info"]
-    #           user.email = data["email"] if user.email.blank?
-    #       end
-    #   end
+      super.tap do |user|
+          if data = session["devise.wechat_data"] && session["devise.wechat_data"]["extra"]["raw_info"]
+              user.email = data["email"] if user.email.blank?
+          end
+      end
   end
 
 end
