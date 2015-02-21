@@ -6,7 +6,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
         # if @user.id == nil
         #   @user.save
         # end
-
+        puts @user
+        @user.save
+        puts @user
         render :text => @user
 
         # if @user.persisted?

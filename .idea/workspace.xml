@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d64526be-0700-43eb-a66b-e2024d0a0e94" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/users/omniauth_callbacks_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/users/omniauth_callbacks_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="signin.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,11 +30,9 @@
       <file leaf-file-name="omniauth_callbacks_controller.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/users/omniauth_callbacks_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.18448023" vertical-offset="0" max-vertical-offset="683">
-              <caret line="9" column="29" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
-              <folding>
-                <marker date="1424506690000" expanded="true" signature="258:313" placeholder="if ... end" />
-              </folding>
+            <state vertical-scroll-proportion="0.20497803" vertical-offset="0" max-vertical-offset="683">
+              <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -387,11 +384,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/users/omniauth_callbacks_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18448023" vertical-offset="0" max-vertical-offset="683">
-          <caret line="9" column="29" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
-          <folding>
-            <marker date="1424506690000" expanded="true" signature="258:313" placeholder="if ... end" />
-          </folding>
+        <state vertical-scroll-proportion="0.20497803" vertical-offset="0" max-vertical-offset="683">
+          <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
+          <folding />
         </state>
       </provider>
     </entry>
