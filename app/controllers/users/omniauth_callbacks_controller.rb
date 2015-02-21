@@ -7,14 +7,14 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
           @user.save
         end
 
-        puts @user.inspect
-        
-        if @user.persisted?
-           sign_in_and_redirect @user, :event => :authentication #this will throw if @user is not activated
-           set_flash_message(:notice, :success, :kind => "Wechat") if is_navigational_format?
-        else
-           session["devise.wechat_data"] = request.env["omniauth.auth"]
-           redirect_to new_user_registration_url
-        end
+        render :text => @user.inspect
+
+        # if @user.persisted?
+        #    sign_in_and_redirect @user, :event => :authentication #this will throw if @user is not activated
+        #    set_flash_message(:notice, :success, :kind => "Wechat") if is_navigational_format?
+        # else
+        #    session["devise.wechat_data"] = request.env["omniauth.auth"]
+        #    redirect_to new_user_registration_url
+        # end
     end
 end
