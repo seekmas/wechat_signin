@@ -14,7 +14,6 @@ class User < ActiveRecord::Base
           user.nickname = auth.info.nickname
           user.headimgurl = auth.info.headimgurl
       end
-
   end
 
   def self.new_with_session(params, session)
