@@ -1,0 +1,34 @@
+<script>
+    webix.ui({
+        width: '100%',
+        rows: [
+            {
+                view:"toolbar",
+                elements:
+                        [
+                            { view:"button", id:"refresh", value:"Refresh",    width:100 }
+                        ]
+            },
+            {
+                rows: [
+
+                    {
+                        view:"list",
+                        id:"list",
+                        template:"#comment#",
+                        data:""
+                    },
+                    {
+                        template:"Row 2"
+                    }
+                ]
+            }
+        ]
+    });
+
+    $$("refresh").attachEvent('onItemClick', function(id,e){
+
+        $$("list").load("/comments.json");
+
+    });
+</script>

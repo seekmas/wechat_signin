@@ -1,0 +1,92 @@
+<script>
+    var  menu = {
+        view:"menu",
+        responsive:true,
+        data:[
+            { id:"1",value:"我的主页", submenu:[
+                "English",
+                { value:"Slavic...", submenu:[
+                    "Belarus", "Russian", "Ukranian"
+                ]},
+                "German"
+            ]},
+            { id:"2",value:"Post...", submenu:[ "Facebook", "Google+", "Twitter" ]},
+            { id:"3",value:"注销",href:'/' }
+        ]
+    };
+
+    var logo_location = {
+        height: 100,
+        cols: [
+            {
+                gravity:0.6,
+                css: 'background',
+                view: 'template',
+                template: '<%= image_tag('logo.png' , :class => 'head-logo') %>'
+            } ,
+            {
+                gravity:0.4,
+                css: 'background',
+                view: 'template',
+                template: '<%= image_tag('location-icon.gif' , :class => 'head-location') %> <%= @card.city %>',
+                borderless:true
+            }
+        ]
+    }
+
+
+    var avatar = {
+        css: 'background',
+        view: 'template',
+        template: '<p align=center><%=image_tag @card.user.headimgurl , :class => 'circle-image' %></p>',
+        height: 170
+    };
+
+    var title = {
+        css: 'background',
+        view: 'template',
+        template: '<p class="name" align=center><%= @card.name %></p>',
+        height: 100,
+
+    };
+
+    var medals = {
+        css: 'background',
+        view: 'template',
+        template: '<span class="medals">DJ</span>',
+        height: 100
+    };
+
+    var signature = {
+        css: 'background',
+        view: 'template',
+        template: '<p class="signature"><%= @card.signature %></p>',
+        height: 100
+    };
+
+    var like = {
+        css: 'background',
+        view: 'template',
+        template: '<p class="like-p" align=center><%=image_tag('like-icon.gif' , :class => 'like') %> 已有21056个好友评论 </p>'
+    }
+
+
+
+    webix.ui({
+        type:"clean",
+        rows:[
+            {
+
+                type:"clean",
+                rows:[
+                    logo_location,
+                    avatar,
+                    title,
+                    medals,
+                    signature,
+                    like
+                    //webix.copy(menu)
+            ]}
+        ]
+    })
+</script>

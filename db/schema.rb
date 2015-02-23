@@ -11,7 +11,57 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150221082339) do
+ActiveRecord::Schema.define(version: 20150223060356) do
+
+  create_table "card_medals", force: true do |t|
+    t.integer  "card_id"
+    t.integer  "medal_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "cards", force: true do |t|
+    t.string   "name"
+    t.integer  "age"
+    t.string   "city"
+    t.datetime "start"
+    t.text     "signature"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "cards", ["id"], name: "index_cards_on_id", using: :btree
+
+  create_table "comments", force: true do |t|
+    t.string   "comment"
+    t.integer  "card_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "medals", force: true do |t|
+    t.string   "name"
+    t.string   "cover"
+    t.boolean  "enabled"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "cover_file_name"
+    t.string   "cover_content_type"
+    t.integer  "cover_file_size"
+    t.datetime "cover_updated_at"
+  end
+
+  create_table "schedulers", force: true do |t|
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.string   "context"
+    t.text     "details"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

@@ -1,0 +1,45 @@
+<script>
+    webix.i18n.setLocale("zh-CN");
+    webix.ui({
+        rows: [
+            {
+                type: "header",
+                template: "完善资料 - <%=current_user.nickname%>"
+            },
+            {
+                view:"form",
+                id:"card_form",
+                width:'100%',
+                elements:[
+                    { view:"text", id:"name", label:"我的名字"},
+                    { view:"text", id:"age", label:"我的年纪"},
+                    { view:"text", id:"city", label:"所在城市"},
+                    { view:"datepicker", id:"start", label:"职业始于" , format:"%Y-%m-%d"},
+                    { view:"textarea", height: 100 ,id:"signature", label:"个性签名"},
+                    { margin:5, cols:[
+                        { id:"card_form_submit", view:"button", value:"更新" , type:"form" },
+                        { view:"button", value:"取消" }
+                    ]}
+                ]
+            }
+        ]
+    });
+
+    $$("card_form_submit").attachEvent("onItemClick" , function(id,e){
+
+        var params = {
+            name: $$('name').getValue(),
+            age: $$('age').getValue(),
+            city: $$('city').getValue(),
+            start: $$('start').getValue(),
+            signature: $$('signature').getValue(),
+            "<%=request_forgery_protection_token.to_s%>": "<%=form_authenticity_token%>"
+        };
+
+        webix.ajax().post('/save-card', params , function(text, data, XmlHttpRequest){
+            console.log(text)
+            console.log(data)
+            console.log(XmlHttpRequest)
+        });
+    });
+</script>

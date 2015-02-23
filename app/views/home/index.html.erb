@@ -1,3 +1,23 @@
+<script>
+
+    webix.ui({
+        width: '100%',
+        rows: [
+            {
+                type: "header",
+                template: "<%=current_user.nickname%>"
+            },
+            {
+                cols: [
+                    {
+                        template:"Row 2"
+                    }
+                ]
+            }
+        ]
+    });
+</script>
+
 Hello rails.
 
 

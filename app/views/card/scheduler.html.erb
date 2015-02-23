@@ -1,0 +1,70 @@
+<script type="text/javascript" charset="utf-8">
+    scheduler.config.init_date = new Date();
+    /* Russian locale labels*/
+    webix.i18n.calendar.monthFull = ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"];
+    webix.i18n.calendar.monthShort = ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"];
+    webix.i18n.calendar.dayShort = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
+    webix.i18n.calendar.dayFull = ["星期天", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+    webix.i18n.calendar.hours = "小时";
+    webix.i18n.calendar.minutes = "分钟";
+    webix.i18n.calendar.done = "完成";
+
+    var labels = {
+        icon_back:"返回",
+        icon_today:"今日",
+        week_tab:"按周",
+        day_tab:"按天",
+        month_tab:"按月",
+        icon_cancel : "取消",
+        icon_close : "关闭",
+        icon_delete : "删除",
+        icon_edit : "编辑",
+        icon_save : "保存",
+        icon_yes : "是",
+        icon_no : "否",
+        icon_done : "完成",
+        confirm_deleting: "将要删除这个事件,是否继续执行?",
+        confirm_closing : "修改将不会被保存,是否继续?",
+        /*form*/
+        label_event:"事件",
+        label_start:"开始事件",
+        label_end:"结束时间",
+        label_details:"详细",
+        label_from:"从这里开始: ",
+        label_to:"到这里结束: ",
+        label_allday:"全天",
+        label_time:"事件",
+        label_no_events: "当前没有我的事件"
+    };
+
+    /*add values to the existed locale (defined in locale_ru.js)*/
+    webix.extend(scheduler.locale.labels,labels,true);
+    /* new format for date in week titles*/
+    scheduler.config.week_date = "%Y %M %d , %l";
+    scheduler.config.all_day_date = "%Y %M %d , %l";
+    webix.Date.startOnMonday = true;
+    webix.ready(function(){
+        webix.ui.fullScreen();
+        webix.attachEvent("onBeforeAjax", function(mode, url, data, request){
+
+            console.log(mode);
+            console.log(url);
+
+            if(data != null)
+            {
+                data['context'] = data['text'];
+                data['<%= request_forgery_protection_token.to_s %>'] = '<%= form_authenticity_token %>';
+            }
+        });
+
+        webix.ui({
+            view: "scheduler",
+            id: "scheduler",
+            save: "<%= url_for new_scheduler_path %>"
+        });
+
+        webix.i18n.fullDateFormat="%Y-%m-%d %H:%i";
+        webix.i18n.setLocale();
+        $$("scheduler").load("<%= url_for my_scheduler_path(:format => :json)%>");
+    });
+</script>

@@ -1,0 +1,28 @@
+{
+  "name": "webix",
+  "version": "2.2.3",
+  "description": "Javascript components library for mobile and desktop browsers",
+  "main": "codebase/webix.js",
+  "keywords": [
+    "components",
+    "widgets",
+    "library",
+    "mobile",
+    "grid",
+    "tree",
+    "chart",
+    "ajax",
+    "layout"
+  ],
+  "license": "GPL",
+  "homepage": "http://webix.com",
+  "_release": "2.2.3",
+  "_resolution": {
+    "type": "version",
+    "tag": "2.2.3",
+    "commit": "dca2eba5c077ef51dd2b7edd1e7fa729c85c3526"
+  },
+  "_source": "git://github.com/webix-hub/tracker.git",
+  "_target": "*",
+  "_originalSource": "webix"
+}

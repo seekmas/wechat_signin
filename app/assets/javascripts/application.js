@@ -13,4 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require webix/codebase/webix
+//= require webix/codebase/i18n/zh
+//= require scheduler/scheduler.js
 //= require_tree .
+
+$.noConflict();

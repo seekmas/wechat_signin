@@ -1,0 +1,29 @@
+<h1>Listing medals</h1>
+
+<table width="100%">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Cover</th>
+      <th>Enabled</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @medals.each do |medal| %>
+      <tr>
+        <td><%= medal.name %></td>
+        <td><%= image_tag medal.cover.url(:thumb) %></td>
+        <td><%= medal.enabled %></td>
+        <td><%= link_to 'Show', medal %></td>
+        <td><%= link_to 'Edit', edit_medal_path(medal) %></td>
+        <td><%= link_to 'Destroy', medal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Medal', new_medal_path %>
