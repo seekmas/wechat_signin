@@ -49,6 +49,7 @@ class CardController < ApplicationController
   #展示卡片
   def show
     @card = Card.find(index_id)
+    @comment_counter = @card.comments.length
   end
 
   #获取我的徽章

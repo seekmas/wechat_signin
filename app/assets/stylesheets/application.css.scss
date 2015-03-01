@@ -7,6 +7,10 @@
 $bgcolor: #D43A3D;
 $font: #ffffff;
 
+body {
+  font-family: "Microsoft YaHei", SimHei, SimSun, Heiti, "MS Mincho", "Meiryo", monospace;
+}
+
 a {
   text-decoration: none;
 }
@@ -31,6 +35,10 @@ a:hover {
   border-radius:50%;
   background-image: url("http://placekitten.com/g/200/400");
   background-position-y:25%
+}
+
+.comment-name {
+  font-size: 16px;
 }
 
 .background {

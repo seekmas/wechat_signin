@@ -32,15 +32,15 @@
         css: 'background',
         view: 'template',
         template: '<p class="name" align=center><%= @card.name %></p>',
-        height: 60
+        height: 80
     };
 
   var comment_list = {
       container:"listB",
       view:"list",
-      template:"#id# . <img src='#avatar#' class='comment-avatar' /> <span>#name# : <strong>#comment#</strong> <p>#created_at#</p>",
+      template:"#id# . <img src='#avatar#' class='comment-avatar' /> <span class='comment-name'>#name#</span> : <strong>#comment#</strong>",
       type:{
-          height:80
+          height:120
       },
       select:true,
       url: '<%=list_comment_path(:id => @card.id , :format => :json)%>'

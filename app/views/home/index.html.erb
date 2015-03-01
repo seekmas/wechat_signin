@@ -3,29 +3,37 @@
     var card = {
         view: "template",
         css: "background",
-        height: 'auto',
-        template: '<%=link_to image_tag("menu/card.png" , :style => 'width: 80%') , my_card_path%>'
+        template: '<%=link_to image_tag("menu/card.png" , :style => 'width: 75%') , my_card_path%>'
     };
 
     var user_info = {
         view: "template",
         css: "background",
-        height: 'auto',
-        template: '<%=link_to image_tag("menu/info.png" , :style => 'width: 80%') , user_info_menu_path %>'
-    }
+        template: '<%=link_to image_tag("menu/info.png" , :style => 'width: 75%') , user_info_menu_path %>'
+    };
 
     var collection = {
         view: "template",
         css: "background",
-        height: 'auto',
-        template: '<%=image_tag "menu/share.png" , :style => 'width: 84%'%>'
-    }
+        template: '<%=image_tag "menu/share.png" , :style => 'width: 80%'%>'
+    };
 
     var message = {
         view: "template",
         css: "background",
-        height: 'auto',
-        template: '<%=image_tag "menu/skill.png" , :style => 'width: 100%'%>'
+        template: '<%=image_tag "menu/skill.png" , :style => 'width: 90%'%>'
+    };
+
+    var rank = {
+        view: "template",
+        css: "background",
+        template: '<%=image_tag "menu/rank.png" , :style => 'width: 80%'%>'
+    }
+
+    var wechat = {
+        view: "template",
+        css: "background",
+        template: '<p align="center"><a href="">关注婚格微信</a></a>'
     }
 
     var layouts = {
@@ -39,7 +47,10 @@
                     card ,
                     user_info,
                     collection,
-                    message
+                    message,
+                    rank,
+                    wechat
+
                 ]
             }
         ]
