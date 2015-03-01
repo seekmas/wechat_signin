@@ -1,36 +1,53 @@
 <script>
 
-    webix.ui({
-        width: '100%',
+    var card = {
+        view: "template",
+        css: "background",
+        height: 'auto',
+        template: '<%=link_to image_tag("menu/card.png" , :style => 'width: 80%') , my_card_path%>'
+    };
+
+    var user_info = {
+        view: "template",
+        css: "background",
+        height: 'auto',
+        template: '<%=link_to image_tag("menu/info.png" , :style => 'width: 80%') , user_info_menu_path %>'
+    }
+
+    var collection = {
+        view: "template",
+        css: "background",
+        height: 'auto',
+        template: '<%=image_tag "menu/share.png" , :style => 'width: 84%'%>'
+    }
+
+    var message = {
+        view: "template",
+        css: "background",
+        height: 'auto',
+        template: '<%=image_tag "menu/skill.png" , :style => 'width: 100%'%>'
+    }
+
+    var layouts = {
+        type: 'clean',
+        scroll: true,
         rows: [
+            logo_location,
             {
-                type: "header",
-                template: "<%=current_user.nickname%>"
-            },
-            {
-                cols: [
-                    {
-                        template:"Row 2"
-                    }
+                type:"clean",
+                rows: [
+                    card ,
+                    user_info,
+                    collection,
+                    message
                 ]
             }
         ]
-    });
+    };
+
+    webix.ui.fullScreen();
+    webix.Touch.enable();
+    webix.Touch.limit(true);
+    webix.ui(layouts);
+
 </script>
-
-Hello rails.
-
-
-<% if current_user %>
-
-    <p><%=image_tag current_user.headimgurl%></p>
-    <p><%= current_user.nickname %></p>
-
-
-    <%= link_to('登出', destroy_user_session_path, :method => :delete) %> |
-    <%= link_to('修改密碼', edit_registration_path(:user)) %>
-<% else %>
-    <%= link_to "Sign in with Wechat", user_omniauth_authorize_path(:wechat) %>
-<% end %>
-
-

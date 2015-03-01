@@ -1,6 +1,8 @@
 {
   "name": "dsl-generated dependencies",
   "dependencies": {
-    "webix": "latest"
+    "webix": "latest",
+    "materialize": "latest",
+    "interact": "latest"
   }
 }

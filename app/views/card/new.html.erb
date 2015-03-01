@@ -1,21 +1,29 @@
 <script>
+
+    var returns = {
+        view: "template",
+        css: "background",
+        height: 'auto',
+        template: '<%=link_to image_tag("menu/return.png" , :style => 'width: 80%') , user_info_menu_path %>'
+    };
+
     webix.i18n.setLocale("zh-CN");
     webix.ui({
+        type: 'clean',
         rows: [
-            {
-                type: "header",
-                template: "完善资料 - <%=current_user.nickname%>"
-            },
+
+            logo_location,
+            returns,
             {
                 view:"form",
                 id:"card_form",
                 width:'100%',
                 elements:[
-                    { view:"text", id:"name", label:"我的名字"},
-                    { view:"text", id:"age", label:"我的年纪"},
-                    { view:"text", id:"city", label:"所在城市"},
-                    { view:"datepicker", id:"start", label:"职业始于" , format:"%Y-%m-%d"},
-                    { view:"textarea", height: 100 ,id:"signature", label:"个性签名"},
+                    { view:"text", id:"name", label:"我的名字" , value:"<%=@card.name%>" },
+                    { view:"text", id:"age", label:"我的年纪", value:"<%=@card.age%>"},
+                    { view:"text", id:"city", label:"所在城市", value:"<%=@card.city%>"},
+                    { view:"datepicker", id:"start", label:"职业始于" , value:"<%=@card.start%>" , format:"%Y-%m-%d"},
+                    { view:"textarea", height: 100 ,id:"signature", value:"<%=@card.signature%>",label:"个性签名"},
                     { margin:5, cols:[
                         { id:"card_form_submit", view:"button", value:"更新" , type:"form" },
                         { view:"button", value:"取消" }
@@ -24,6 +32,8 @@
             }
         ]
     });
+
+
 
     $$("card_form_submit").attachEvent("onItemClick" , function(id,e){
 
@@ -37,9 +47,23 @@
         };
 
         webix.ajax().post('/save-card', params , function(text, data, XmlHttpRequest){
-            console.log(text)
-            console.log(data)
-            console.log(XmlHttpRequest)
+
+            webix.confirm({
+                title:"提醒",
+                ok:"查看更新",
+                cancel:"继续修改",
+                type:"confirm-successq",
+                text:"你的资料已经更新成功",
+                callback:function(result){ //setting callback
+
+                    console.log(result);
+                    if(true === result)
+                    {
+                        window.location.href = "<%=show_card_path(@card.id)%>"
+                    }
+
+                }
+            });
         });
     });
 </script>

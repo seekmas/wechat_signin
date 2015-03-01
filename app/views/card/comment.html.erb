@@ -1,0 +1,62 @@
+<% content_for :title, '我是' + @card.name + ',这是大家对我的评价,喜欢就转一下吧!'%>
+
+
+<script>
+
+    var logo_location = {
+        height: 45,
+        cols: [
+            {
+                gravity:0.6,
+                css: 'background',
+                view: 'template',
+                template: '<%= link_to image_tag('logo.png' , :class => 'head-logo') , root_path %>'
+            } ,
+            {
+                gravity:0.4,
+                css: 'background',
+                view: 'template',
+                template: '<%= image_tag('location-icon.gif' , :class => 'head-location') %> <%= @card.city %>',
+                borderless:true
+            }
+        ]
+    };
+    var avatar = {
+        css: 'background',
+        view: 'template',
+        template: '<p align=center><%=link_to image_tag(@card.user.headimgurl , :class => 'circle-image') , show_card_path(:id => @card.id) %></p>',
+        height: 150
+    };
+
+    var title = {
+        css: 'background',
+        view: 'template',
+        template: '<p class="name" align=center><%= @card.name %></p>',
+        height: 60
+    };
+
+  var comment_list = {
+      container:"listB",
+      view:"list",
+      template:"#id# . <img src='#avatar#' class='comment-avatar' /> <span>#name# : <strong>#comment#</strong> <p>#created_at#</p>",
+      type:{
+          height:80
+      },
+      select:true,
+      url: '<%=list_comment_path(:id => @card.id , :format => :json)%>'
+  };
+
+  var layouts = {
+      type: 'clean',
+      css: 'background',
+      rows: [
+          logo_location,
+          avatar ,
+          title,
+          comment_list
+      ]
+  };
+
+    webix.Touch.limit(true);
+    webix.ui(layouts);
+</script>

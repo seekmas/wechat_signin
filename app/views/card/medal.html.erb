@@ -1,0 +1,97 @@
+<script>
+    var returns = {
+        view: "template",
+        css: "background",
+        height: 100,
+        template: '<%=link_to image_tag("menu/return.png" , :style => 'width: 80%') , user_info_menu_path %>'
+    };
+
+    var list = {
+        id: "list",
+        view: 'list',
+        scroll: true,
+        //template: 'html->item_list',
+        template: "<div class='medals-thumb' data-id='#id#'><img src='#thumb_cover#' />  #name#</div>",
+        select: true,
+        url: "/medals.json?1"
+        //height: 'auto'
+    };
+
+    //webix.ui.fullScreen();
+
+    webix.Touch.limit(true);
+    webix.ui({
+        type: 'clean',
+        scroll: true ,
+        rows: [
+            logo_location,
+            returns ,
+            {
+                rows: [
+                    list
+                ]
+            }
+
+        ]
+    });
+
+    $$('list').attachEvent('onItemClick' , function(id, e, node){
+
+        var medal_id = node.childNodes[0].getAttribute('data-id');
+
+        webix.ajax().get("<%=set_medals_path%>", {medal_id: medal_id}, function(text){
+
+            if( 'duplicate' == text)
+            {
+                webix.confirm({
+                    title:"提醒",
+                    ok:"查看更新",
+                    cancel:"继续修改",
+                    type:"confirm-successq",
+                    text:"你的徽章添加成功",
+                    callback:function(result){ //setting callback
+
+                        console.log(result);
+                        if(true === result)
+                        {
+                            window.location.href = "<%=show_card_path(@card.id)%>"
+                        }
+
+                    }
+                });
+            }else if('override' == text)
+            {
+                webix.confirm({
+                    title:"提醒",
+                    ok:"查看更新",
+                    cancel:"继续修改",
+                    type:"confirm-successq",
+                    text:"你的徽章更新成功",
+                    callback:function(result){ //setting callback
+                        console.log(result);
+                        if(true === result)
+                        {
+                            window.location.href = "<%=show_card_path(@card.id)%>"
+                        }
+
+                    }
+                });
+            }else
+            {
+                webix.alert({
+                    title:"提示",
+                    ok:"确定",
+                    type:"alert-success",
+                    text: '添加成功',
+                    callback:function(){
+
+                    }
+                });
+            }
+
+
+        });
+
+
+    });
+</script>

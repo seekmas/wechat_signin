@@ -1,13 +1,33 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-  <title>Signin</title>
-  <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <title><%= content_for?(:title) ? yield(:title) : "婚格 - 朋友圈" %></title>
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=medium-dpi" />  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <script type="application/javascript">
+
+      var logo_location = {
+          height: 45,
+          cols: [
+              {
+                  gravity:0.6,
+                  css: 'background',
+                  view: 'template',
+                  template: '<%= link_to image_tag('logo.png' , :class => 'head-logo') , root_path %>'
+              } ,
+              {
+                  gravity:0.4,
+                  css: 'background',
+                  view: 'template',
+                  template: '',
+                  borderless:true
+              }
+          ]
+      };
+  </script>
 </head>
-<body>
+<body class="background">
 
     <%=yield%>
 

@@ -1,28 +1,14 @@
-<script>
-    var  menu = {
-        view:"menu",
-        responsive:true,
-        data:[
-            { id:"1",value:"我的主页", submenu:[
-                "English",
-                { value:"Slavic...", submenu:[
-                    "Belarus", "Russian", "Ukranian"
-                ]},
-                "German"
-            ]},
-            { id:"2",value:"Post...", submenu:[ "Facebook", "Google+", "Twitter" ]},
-            { id:"3",value:"注销",href:'/' }
-        ]
-    };
+<% content_for :title, '我是' + @card.name + ',我需要你的认可,来给我点个赞吧!'%>
 
+<script>
     var logo_location = {
-        height: 100,
+        height: 45,
         cols: [
             {
                 gravity:0.6,
                 css: 'background',
                 view: 'template',
-                template: '<%= image_tag('logo.png' , :class => 'head-logo') %>'
+                template: '<%= link_to image_tag('logo.png' , :class => 'head-logo') , root_path %>'
             } ,
             {
                 gravity:0.4,
@@ -32,61 +18,130 @@
                 borderless:true
             }
         ]
-    }
-
+    };
 
     var avatar = {
         css: 'background',
         view: 'template',
-        template: '<p align=center><%=image_tag @card.user.headimgurl , :class => 'circle-image' %></p>',
-        height: 170
+        template: '<p align=center><%=link_to image_tag(@card.user.headimgurl , :class => 'circle-image') , card_comment_path(:id => @card.id) %></p>',
+        height: 150
     };
 
     var title = {
         css: 'background',
         view: 'template',
         template: '<p class="name" align=center><%= @card.name %></p>',
-        height: 100,
-
+        height: 60
     };
 
     var medals = {
-        css: 'background',
-        view: 'template',
-        template: '<span class="medals">DJ</span>',
-        height: 100
+
+        view:"list",
+        layout: 'x',
+        scroll: false,
+        container: 'medals',
+        css: 'background medals-list',
+        template: '<span class="medals-thumb"><img src="#thumb_cover#" /> #name#</span>',
+        url: '/<%=@card.id%>/medals.json'
     };
+
 
     var signature = {
         css: 'background',
         view: 'template',
         template: '<p class="signature"><%= @card.signature %></p>',
-        height: 100
+        height: 150
     };
 
     var like = {
+        id: 'like',
         css: 'background',
         view: 'template',
-        template: '<p class="like-p" align=center><%=image_tag('like-icon.gif' , :class => 'like') %> 已有21056个好友评论 </p>'
-    }
+        height: 60,
+        template: '<p class="like-p" align=center><%= link_to image_tag('like-icon.gif' , :class => 'like').to_s+' 已有21056个好友评论' , card_comment_path(:id => @card.id) %>  </p>'
 
+    };
 
+    var comment_form = {
+        view:"form",
+        id:"card_form",
+        css: 'background',
+        width:'100%',
+        elements:[
+            {
+                margin:2,
+                cols:[
+                    { id:"name", view:"text", label:"" , gravity:0.7 },
+                    { id:"card_form_submit", view:"button", value:"发表评论" , type:"form" , gravity:0.3 }
+                ]
+            }
+        ]
+    };
 
+    //ui
+    webix.Touch.enable();
+    webix.Touch.limit(true);
     webix.ui({
-        type:"clean",
+        scroll: true,
         rows:[
             {
-
                 type:"clean",
                 rows:[
+
                     logo_location,
                     avatar,
                     title,
                     medals,
                     signature,
-                    like
-                    //webix.copy(menu)
-            ]}
+                    like,
+                    comment_form
+
+                ]
+            }
         ]
-    })
+    });
+
+    //event
+    $$('like').attachEvent('onTouchStart' , function(){
+        alert("<%=@card.id%>");
+    });
+
+        $$('card_form_submit').attachEvent('onItemClick' , function(){
+
+            var params = {
+                comment: $$('name').getValue(),
+                id: '<%=@card.id%>',
+                "<%=request_forgery_protection_token.to_s%>": "<%=form_authenticity_token%>"
+            };
+
+            webix.ajax().post('/comment_on' , params , function(text, data, XmlHttpRequest){
+                if(text)
+                {
+                    webix.confirm({
+                        title:"提醒",
+                        ok:"查看评价",
+                        cancel:"继续浏览",
+                        type:"confirm-successq",
+                        text:"你已经评价成功",
+                        callback:function(result){ //setting callback
+
+                            console.log(result);
+                            if(true === result)
+                            {
+                                window.location.href = "<%=card_comment_path(@card.id)%>"
+                            }
+
+                        }
+                    });
+                }
+            });
+        })
+
+
 </script>
+<script>
+
+</script>
+
+
+

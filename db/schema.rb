@@ -11,10 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150223060356) do
+ActiveRecord::Schema.define(version: 20150301131154) do
 
   create_table "card_medals", force: true do |t|
-    t.integer  "card_id"
+    t.uuid     "card_id"
     t.integer  "medal_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20150223060356) do
 
   create_table "comments", force: true do |t|
     t.string   "comment"
-    t.integer  "card_id"
+    t.uuid     "card_id"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"

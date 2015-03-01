@@ -1,7 +1,7 @@
 class MedalsController < ApplicationController
   before_action :set_medal, only: [:show, :edit, :update, :destroy]
 
-  respond_to :html
+  respond_to :html,:json
 
   def index
     @medals = Medal.all

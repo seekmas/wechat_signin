@@ -1,0 +1,46 @@
+<script>
+
+    var returns = {
+        view: "template",
+        css: "background",
+        height: 'auto',
+        template: '<%=link_to image_tag("menu/return.png" , :style => 'width: 80%') , root_path %>'
+    };
+
+    var update = {
+        view: "template",
+        css: "background",
+        height: 'auto',
+        template: '<%=link_to image_tag("menu/my_info.png" , :style => 'width: 80%') , new_card_path %>'
+
+    };
+
+    var medals = {
+        view: "template",
+        css: "background",
+        height: 'auto',
+        template: '<%=link_to image_tag("menu/my_medal.png" , :style => 'width: 80%') , all_medals_path %>'
+    }
+
+    var layouts = {
+        type: 'clean',
+        scroll: true,
+        rows: [
+            logo_location,
+            {
+                type:"clean",
+                rows: [
+                    returns,
+                    update,
+                    medals
+                ]
+            }
+        ]
+    };
+
+    webix.ui.fullScreen();
+    webix.Touch.enable();
+    webix.Touch.limit(true);
+    webix.ui(layouts);
+
+</script>

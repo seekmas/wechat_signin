@@ -3,22 +3,45 @@
 @import "scheduler/scheduler";
 @import "font-awesome";
 
-.circle-image{
-  width:150px;
-  height:150px;
+
+$bgcolor: #D43A3D;
+$font: #ffffff;
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.circle-image {
+  width:130px;
+  height:130px;
   border-radius:50%;
-  background-image:url("http://placekitten.com/g/200/400");
+  background-image: url("http://placekitten.com/g/200/400");
   display:block;
   background-position-y:25%
 }
 
-.background {
-  background: #D43A3D;
-  color: #ffffff;
+.comment-avatar {
+  vertical-align:middle;
+  width:30px;
+  height:30px;
+  border-radius:50%;
+  background-image: url("http://placekitten.com/g/200/400");
+  background-position-y:25%
 }
+
+.background {
+  background: $bgcolor;
+  color: $font;
+}
+
+
 .head-logo {
   padding: 10px;
-  width: 80px;
+  width: 40%;
 }
 
 .head-location {
@@ -44,7 +67,35 @@
   font-size: 16px;
 }
 
-.like {
+.like-p a{
+  color: #ffffff;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.like{
   vertical-align:middle;
-  width: 32px;
+  width: 28px;
+}
+
+.medals-thumb {
+  font-size: 14px;
+}
+
+.medals-thumb img {
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+}
+
+.medals-list {
+  text-align: center;
+}
+
+.webix_list-x .webix_list_item {
+  display: inline-block;
+  vertical-align: top;
+  border-right: 0px solid #EBEBEB;
+  border-bottom: medium none #EBEBEB;
+  border-color: #EBEBEB;
 }
