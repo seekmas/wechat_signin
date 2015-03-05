@@ -49,6 +49,11 @@ class CardController < ApplicationController
   #展示卡片
   def show
     @card = Card.find(index_id)
+
+    if @card == nil
+      redirect_to new_card_path
+    end
+
     @comment_counter = @card.comments.length
   end
 

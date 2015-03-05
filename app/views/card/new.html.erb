@@ -19,11 +19,11 @@
                 id:"card_form",
                 width:'100%',
                 elements:[
-                    { view:"text", id:"name", label:"我的名字" , value:"<%=@card.name%>" },
-                    { view:"text", id:"age", label:"我的年纪", value:"<%=@card.age%>"},
-                    { view:"text", id:"city", label:"所在城市", value:"<%=@card.city%>"},
-                    { view:"datepicker", id:"start", label:"职业始于" , value:"<%=@card.start%>" , format:"%Y-%m-%d"},
-                    { view:"textarea", height: 100 ,id:"signature", value:"<%=@card.signature%>",label:"个性签名"},
+                    { view:"text", id:"name", label:"我的名字" , value:"<%=@card.name if @card %>" },
+                    { view:"text", id:"age", label:"我的年纪", value:"<%=@card.age if @card %>"},
+                    { view:"text", id:"city", label:"所在城市", value:"<%=@card.city if @card %>"},
+                    { view:"datepicker", id:"start", label:"职业始于" , value:"<%=@card.start if @card %>" , format:"%Y-%m-%d"},
+                    { view:"textarea", height: 100 ,id:"signature", value:"<%=@card.signature if @card %>",label:"个性签名"},
                     { margin:5, cols:[
                         { id:"card_form_submit", view:"button", value:"更新" , type:"form" },
                         { view:"button", value:"取消" }
