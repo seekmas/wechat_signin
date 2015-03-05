@@ -11,7 +11,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
-gem 'spring',        group: :development
+gem 'spring', '1.3.3',       group: :development
 
 gem 'rails-assets-comment-core-library'
 gem 'bower-rails'
