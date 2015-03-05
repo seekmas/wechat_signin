@@ -58,7 +58,7 @@
         css: 'background',
         view: 'template',
         height: 80,
-        template: '<p class="like-p" align=center><%= link_to image_tag('like-icon.gif' , :class => 'like').to_s+' 已有'+@comment_counter.to_s+'个好友评论' , card_comment_path(:id => @card.id) %>  </p>'
+        template: '<p class="like-p" align=center><%= link_to image_tag('like.png' , :class => 'like').to_s+' 已有'+@comment_counter.to_s+'个好友评论' , card_comment_path(:id => @card.id) %>  </p>'
 
     };
 
