@@ -56,10 +56,9 @@
                 text:"你的资料已经更新成功",
                 callback:function(result){ //setting callback
 
-                    console.log(result);
                     if(true === result)
                     {
-                        window.location.href = "<%=show_card_path(@card.id)%>"
+                        window.location.href = "<%=show_card_path(@card.id) if @card %>"
                     }
 
                 }
