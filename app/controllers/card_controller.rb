@@ -1,6 +1,6 @@
 # encoding: utf-8
 class CardController < ApplicationController
-
+  before_action :authenticate_user! , only:[:comment,:medal,:card_info]
   before_action :get_card , only: [:index , :new , :comment , :list_comment , :set_medals , :medal , :card_info ]
   #protect_from_forgery with: :null_session
 
@@ -20,13 +20,19 @@ class CardController < ApplicationController
   end
 
   def comment_on
-    @comment = Comment.create({
-                                  :user_id => current_user.id ,
-                                  :card_id => params[:id] ,
-                                  :comment => params[:comment] ,
-                              });
 
-    render :text => @comment.id
+    if current_user == nil
+      render :text => nil
+    else
+      @comment = Comment.create({
+                                    :user_id => current_user.id ,
+                                    :card_id => params[:id] ,
+                                    :comment => params[:comment] ,
+                                });
+
+      render :text => @comment.id
+    end
+
   end
 
   #创建/更新卡片
