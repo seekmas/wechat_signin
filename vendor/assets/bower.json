@@ -2,7 +2,6 @@
   "name": "dsl-generated dependencies",
   "dependencies": {
     "webix": "latest",
-    "materialize": "latest",
-    "interact": "latest"
+    "bounce.js": "latest"
   }
 }

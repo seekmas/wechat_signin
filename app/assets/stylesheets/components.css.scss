@@ -1,0 +1,125 @@
+// Place all the styles related to the card controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+$fontsize: 18px;
+$menupadding: 18px;
+
+.new {
+  background: #DCD9AF;
+}
+
+.put-right {
+  position: absolute;
+  right: 20px;
+}
+
+.menu {
+  background: $bgcolor;
+}
+
+.menu-header {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.menu-footer {
+  color: #aba789;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  font-size: 13px;
+}
+
+.menu-red {
+  display: block;
+  background: #FF9493;
+  padding: $menupadding;
+  cursor: pointer;
+  font-size: $fontsize;
+}
+
+.menu-orange {
+  cursor: pointer;
+  display: block;
+  background: #FFC298;
+  font-size: $fontsize;
+  padding: $menupadding;
+}
+
+.menu-lightgreen {
+  cursor: pointer;
+  display: block;
+  background: #DEFB9F;
+  font-size: $fontsize;
+  padding: $menupadding;
+}
+
+.menu-normalgreen {
+  cursor: pointer;
+  display: block;
+  background: #87F97C;
+  font-size: $fontsize;
+  padding: $menupadding;
+}
+
+.menu-lightblue {
+  cursor: pointer;
+  display: block;
+  background: #47FBC7;
+  font-size: $fontsize;
+  padding: $menupadding;
+}
+
+.menu-normalblue {
+  cursor: pointer;
+  display: block;
+  background: #84FDFE;
+  font-size: $fontsize;
+  padding: $menupadding;
+}
+
+.menu-deepblue {
+  cursor: pointer;
+  display: block;
+  background: #62F0D5;
+  font-size: $fontsize;
+  padding: $menupadding;
+}
+
+.bottom-menu {
+  text-align: center;
+  display: block;
+  background: #DCD9AF;
+  height: 100%;
+}
+
+.bottom-menu a {
+  font-size: 18px;
+}
+
+.bt_1 input {
+  color: #564465;
+  border-radius: 0px;
+  border: none;
+  background: #DCD9AF;
+}
+
+.bt_1 input:hover {
+  color: #564465;
+  border-radius: 0px;
+  border: none;
+  background: #DCD9AF;
+}
+
+.bt_1 input:focus {
+  color: #564465;
+  border-radius: 0px;
+  border: none;
+  background: #DCD9AF;
+}
+
+.menu-image {
+  height: 30px;
+}

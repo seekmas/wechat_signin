@@ -1,0 +1,137 @@
+<script>
+    var header = {
+        header: true,
+        text: '详细资料'
+    };
+
+    var footer = {
+        footer: true,
+        text: 'Duang~完善以上资料,会有更多新人联系到你!'
+    };
+
+    var roles = {
+        color: 'red' ,
+        text: '我的角色-可选3个'
+    };
+
+    var language = {
+        color: 'orange' ,
+        text: '我的语言'
+    };
+
+    var year = {
+        color: 'lightgreen' ,
+        text: '入行年份'
+    };
+
+    var style = {
+        color: 'normalgreen' ,
+        text: '我的风格'
+    };
+
+    var production = {
+        color: 'lightblue' ,
+        text: '我的作品'
+    };
+
+    var skills = {
+        color: 'normalblue' ,
+        text: '技能列表'
+    };
+
+    var equipments = {
+        color: 'deepblue' ,
+        text: '常用装备'
+    };
+
+    var bottom = {
+        type: 'clean' ,
+        height: 40 ,
+        css: 'bottom-menu',
+        cols: [
+            { id:'discovery' , view:"button", value: "发现", inputWidth:'100%', css:"bt_1"},
+            {
+                view: 'template',
+                css:"new",
+                template: '<a href=""><%=image_tag('menu/add46.png' , :class => 'menu-image')%></a>'
+            },
+            { id: 'scheduler', view:"button", value: "日程", inputWidth:'100%', css:"bt_1"},
+        ]
+    };
+
+    var layouts = {
+        type: 'clean',
+        rows: [
+            logo_location,
+            {
+
+                rows: [
+                    {
+                        id: "menu",
+                        view:"menulist",
+                        scroll:true,
+                        select: true,
+                        borderless:true,
+                        data:[
+                            header,
+                            roles,
+                            language,
+                            year,
+                            style,
+                            production,
+                            skills,
+                            equipments,
+                            footer
+                        ]
+                    } ,
+                    bottom
+
+                ]
+            }
+        ]
+    };
+
+    //webix.Touch.limit(true);
+    webix.ui(layouts);
+
+    $$('menu').attachEvent('onItemClick' , function(id,e,node){
+        console.log(node);
+        var bounce = new Bounce();
+        bounce.translate({
+            from: { x: -300, y: 0 },
+            to: { x: 0, y: 0 },
+            duration: 1000,
+            stiffness: 4
+        })
+        .scale({
+            from: { x: 1, y: 1},
+            to: { x: 5, y: 1 },
+            easing: "sway",
+            duration: 1000,
+            delay: 30
+        }).
+        applyTo(node);
+
+    });
+
+    $$('discovery').attachEvent('onItemClick' , function(id, e, node){
+        console.log(id);
+    });
+
+    var bounce = new Bounce();
+    bounce.translate({
+        from: { x: -300, y: 0 },
+        to: { x: 0, y: 0 },
+        duration: 1000,
+        stiffness: 4
+    })
+    .scale({
+        from: { x: 1, y: 1},
+        to: { x: 5, y: 1 },
+        easing: "sway",
+        duration: 1000,
+        delay: 30
+    }).
+    applyTo(document.querySelectorAll("div"));
+
+</script>

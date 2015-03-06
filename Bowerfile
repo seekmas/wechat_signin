@@ -1,3 +1,2 @@
 asset 'webix'
-asset 'materialize'
-asset 'interact'
+asset 'bounce.js'

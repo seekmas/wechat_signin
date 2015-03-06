@@ -6,9 +6,15 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
+
+  #new style
+  get '/details_profile' => 'home#details_profile' , :as => 'details_profile'
+
+
   #get
   get '/data' => 'home#data' , :as => 'list_data'
-
+  get '/create' => 'home#create' , :as => 'create'
+  get '/dev' => 'home#dev' , :as => 'dev'
   #menu
   get '/user_info_menu' => 'card#user_info_menu' , :as => 'user_info_menu'
 
@@ -22,7 +28,6 @@ Rails.application.routes.draw do
   get '/set_medals' => 'card#set_medals' , :as => 'set_medals'
   get '/comment/:id' => 'card#comment' , :as => 'card_comment'
   get '/card_info' => 'card#card_info' , :as => 'card_info'
-
   get '/:id/list_comment' => 'card#list_comment' , :as => 'list_comment'
   post '/save-card' => 'card#save' , :as => 'save_card'
   post '/comment_on' => 'card#comment_on' , :as => 'comment_on'

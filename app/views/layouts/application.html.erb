@@ -1,26 +1,26 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-  <title><%= content_for?(:title) ? yield(:title) : "婚格" %></title>
+  <title><%= content_for?(:title) ? yield(:title) : "" %></title>
   <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=medium-dpi" />  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <script type="application/javascript">
-
       var logo_location = {
-          height: 45,
+          height: 40,
           cols: [
               {
-                  gravity:0.6,
+                  gravity:0.88,
                   css: 'background',
                   view: 'template',
-                  template: '<%= link_to image_tag('logo.png' , :class => 'head-logo') , root_path %>'
+                  template: '<%= link_to image_tag('logo.png',:class => 'head-logo') , root_path %>'
               } ,
               {
-                  gravity:0.4,
+                  id: 'avatar',
+                  gravity:0.12,
                   css: 'background',
                   view: 'template',
-                  template: '',
+                  template: '<%= link_to image_tag( (current_user.headimgurl if current_user)  , :id => 'avatar' , :class => 'circle-image animation-target' ) %>',
                   borderless:true
               }
           ]
